@@ -17,6 +17,11 @@ namespace CircusTreinTry
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+            Train train = new Train();
+
+            train.FillUnsortedList();
+            train.TransferAnimalToWagon();
         }
     }
 }
