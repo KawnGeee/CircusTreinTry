@@ -42,6 +42,7 @@ namespace CircusTreinTry
             get { return maxPoints; }
             private set { maxPoints = value; }
         }
+
         public bool AddAnimal(Animal animal)
         {
             if (animalList.Count == 0)
@@ -79,22 +80,8 @@ namespace CircusTreinTry
                         totalPoints += (int)animal.Size;
                         return true;
                     }
-                    //add large herbivore to a random herbivore
-                    else if ((beast.IsCarnivore == false && animal.Size == AnimalSize.large && (int)animal.Size + totalPoints <= maxPoints))
-                    {
-                        animalList.Add(animal);
-                        totalPoints += (int)animal.Size;
-                        return true;
-                    }
-                    //add medium herbivore to a random herbivore
-                    else if ((beast.IsCarnivore == false && animal.Size == AnimalSize.medium && (int)animal.Size + totalPoints <= maxPoints))
-                    {
-                        animalList.Add(animal);
-                        totalPoints += (int)animal.Size;
-                        return true;
-                    }
-                    //add small herbivore to a random herbivore
-                    else if ((beast.IsCarnivore == false && animal.Size == AnimalSize.small && (int)animal.Size + totalPoints <= maxPoints))
+                    //add new random herbivore to existing random herbivore
+                    else if ((beast.IsCarnivore == false && (int)animal.Size + totalPoints <= maxPoints))
                     {
                         animalList.Add(animal);
                         totalPoints += (int)animal.Size;
